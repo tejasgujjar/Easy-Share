@@ -5,10 +5,8 @@
 		this.name = name;
 		this.amt = amt;
 	}
-	
-	var members = ["tejas","kushal","yashas","karthik"]; //Input members name here
+	var members = ["Member_1","Member_2","Member_3","Member_4"]; //Input members name here
 	var membersAmt = [10,12,30,55];  //Input member's amount here
-
 	var totalAmt = function(membersAmt){
 		var tot =0;
 		for(var i=0;i<membersAmt.length;i++){
@@ -19,12 +17,10 @@
 	var TotAmt = totalAmt(membersAmt);
 	var individual_share = TotAmt/membersAmt.length;
 	console.log("Individual Share : "+ individual_share);
-	
 	//Add member objects into array
 	for(var i=0;i<membersAmt.length;i++){
 		memArr.push(new memberObj(members[i],membersAmt[i]));
 	}
-
 	//Print initial amounts
 	for(var i=0;i<memArr.length;i++){
 		console.log("Member name:"+memArr[i].name + "\nMember amt: "+memArr[i].amt);
@@ -33,22 +29,14 @@
 	for(var i=0;i<memArr.length;i++){
 		memArr[i].amt = memArr[i].amt - individual_share;
 	}
-	//Print after normalizing
-	console.log("After Normalizing");
-	for(var i=0;i<memArr.length;i++){
-		//console.log("Member name:"+memArr[i].name + "\nMember amt: "+memArr[i].amt);
-	}
-
 	while(memArr.length > 0){
 		//sort array
 		memArr.sort(function(a, b){
 	 		return a.amt-b.amt
 		})
-
 		//Add first and last object
 		var res = memArr[0].amt + memArr[memArr.length - 1].amt;
 		if(res < 0){
-			
 			console.log("UPDATE: Member -"+memArr[0].name +"- should give -$"+memArr[memArr.length -1].amt+"- to member -"+memArr[memArr.length - 1].name+"-. ");
 			memArr[0].amt = res;
 			memArr.splice(memArr.length -1,1);
@@ -65,9 +53,7 @@
 		}
 	}
 </script>
-
 <body>
-	<h4>Welcome</h4>
-
+	<h4>Easy-Share Algorithm</h4>
 </body>
 </html>
